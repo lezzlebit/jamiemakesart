@@ -162,9 +162,6 @@
 		headshot = document.getElementById("headshot").value
 
 
-		drawingtypeprice = 60
-		// if (radiovalue.value == "flexible") drawingtypeprice = 60
-		// if (radiovalue.value == "rigid") drawingtypeprice = 100
 
 
 
@@ -193,8 +190,8 @@
 		// }
 
 		pricemultiplier = 1;
-		price = priceloop(drawingtypeprice, fullbody);
-		price += priceloop(drawingtypeprice / 2, headshot)
+		price = priceloop(60, fullbody);
+		price += priceloop(40, headshot)
 
 		if (!coloreddrawing) price *= (0.75)
 		if (hasme) price *= (0.75)
