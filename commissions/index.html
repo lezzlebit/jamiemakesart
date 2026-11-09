@@ -16,7 +16,7 @@
 	
 
 	<div class="boxes">
-		<h2 id="slots_text">Currently Unavailable</h2>
+		<h2 id="slots_text">(Couldn't get information on open slots)</h2>
 	</div>
 	<div class="boxes" id="box_slots">
 	</div>
@@ -28,7 +28,7 @@
 				<p>
 					Fullbody Characrter: $60<br>
 					Halfbody, PFP, or very simple-shaped character: $40<br>
-					Additional characters are 75% the price they would be by themselves<br>
+					Additional characters are 50% the price they would be by themselves<br>
 					-25% for an uncolored drawing<br>
 					-25% if it has my sona<br>
 				</p>
@@ -61,10 +61,10 @@
 					If you want to commission NSFW art, details can be found on <a href="extra.html">this page</a>.
 				</li>
 				<li class="list">
-					For your own sake: you shouldn't commission me to draw things requiring lots of accuracy (like a refsheet), or something with a deadline like a birthday present (unless you're okay with it being completed late).
+					I like to be a bit experimental when drawing something. You probably shouldn't commission me to draw things requiring lots of accuracy (like a refsheet), or something with a deadline like a birthday present (unless you're okay with it being completed late).
 				</li>
 				<li class="list">
-					I will try my best to draw your character accurately, and I will gladly make tweaks to coloring or lines. However, please don't ask me to draw a completely different pose or camera angle halfway through the process. <br>(If you want this process to go more smoothly, <a href="examples/direction.html">providing visual direction</a> is very helpful)
+					I will try my best to draw your character accurately, and I will gladly make tweaks to coloring or lines on request. However, please don't ask me to draw a completely different pose or camera angle halfway through the process. <br>(If you want this process to go more smoothly, <a href="examples/direction.html">providing visual direction</a> is very helpful)
 				</li>
 				<li class="list">
 					I draw best and fastest when I have fun, so listed below are things I like drawing:
@@ -85,7 +85,8 @@
 					<img class="showcase" src="assets/sonainteraction.png">
 				</div>
 			</div>
-			<p>You can also check out my <a href="../art/">Art Page</a> for more examples on the sorts of things I enjoy drawing</p>
+			<p>
+			You can also check out my <a href="../art/">Art Page</a> for more examples on the sorts of things I enjoy drawing.</p>
 		</div>
 
 
@@ -105,20 +106,21 @@
 	bin1 = bin[0]
 	slots_text = bin1.innerHTML.split("/")
 
-	slots_open = parseInt(slots_text[0])
+	slots_filled = parseInt(slots_text[0])
 	max_slots = parseInt(slots_text[1])
 
-	console.log(slots_open)
+	console.log(slots_filled)
 	console.log(max_slots)
 
-	received_correctly = (slots_open > 0 && max_slots > 0)
+	received_correctly = (slots_filled >= 0 && max_slots >= 0)
 	console.log(received_correctly)
 
 	slots_text_object = document.getElementById("slots_text")
 	if (received_correctly) {
 
+		slots_open = max_slots - slots_filled
 		box_slots = document.getElementById("box_slots")
-		taken_slots = max_slots - slots_open
+		taken_slots = slots_open
 		for (let i = 0; i < max_slots; i++) {
 			if (taken_slots > 0) {
 				taken_slots -= 1
@@ -131,8 +133,10 @@
 			
 		}
 
-
-		slots_text_object.innerHTML = String(slots_open) + "/" + String(max_slots) + " slots open"
+		suffix = " slots open"
+		if (slots_open == 1) suffix = " slot open"
+		if (slots_open == 0) suffix = " slots open (come back another time!)"
+		slots_text_object.innerHTML = String(max_slots - slots_filled) + suffix
 	}
 
 
@@ -142,7 +146,7 @@
 		price = 0;
 		for (i = 0; i < drawingsizecount; i++) {
 			price += drawingtypeprice * pricemultiplier;
-			pricemultiplier = 0.75;
+			pricemultiplier = 0.5;
 		}
 		return price;
 	}
