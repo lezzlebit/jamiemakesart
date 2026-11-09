@@ -21,19 +21,20 @@
 	<div class="boxes" id="box_slots">
 	</div>
 
-	<div class="boxes" style="align-items: baseline;">
+	<div class="boxes" style="align-items: baseline; flex-direction: row-reverse;">
 		<div class="boxes price">
-			<div class="box" style="background-color: #3d3983; width: 300px;">
+			<div class="box pricing">
 				<h2 style="margin-bottom:0px;">Pricing:</h2>
 				<p>
-					Fullbody Characrter: $60<br>
-					Halfbody, PFP, or very simple-shaped character: $40<br>
-					Additional characters are 50% the price they would be by themselves<br>
-					-25% for an uncolored drawing<br>
-					-25% if it has my sona<br>
+					Fullbody character: <b>$60 USD</b><br>
+					Halfbody, PFP, or very simple-shaped character: <b>$40 USD</b><br><br>
+					Additional characters are half the price they would be by themselves<br>
+					25% off for an uncolored drawing<br>
+					25% off if it has my sona<br><br>
+					I take payment via PayPal or Ko-fi (I will provide a link in DMs once I request a payment)
 				</p>
 			</div>
-			<div class="box" style="background-color: #3d3983; width: 300px;">
+			<div class="box pricing">
 				<h2>Price Calculator</h2>
 				<p>
 					<input class="picker" type="number" value="1" id="fullbody" name="quantity" min="0" max="3"  onChange="calculatePrice()"> full-body characters<br>
@@ -49,6 +50,8 @@
 			</div>
 		</div>
 		<div class="box" style="max-width: 800px;">
+
+			<a style="background:#422e8b" class="link" href="../contact"><img class="icon" src="../icons/contact.png">Contact Page</a>
 			<h3>
 				Hi! You can commission me to draw furries and other creatures.<br>
 				Here are some important details, please read them:
@@ -303,12 +306,17 @@
 	}*/
 
 	.list:hover {
-		background-color: rgba(12, 0, 68, 0.411);
+		background-color: #3d3983;
 	}
 
 	.price {
 		align-items: baseline;
 		max-width: 300px;
+	}
+
+	.pricing {
+		background-color: #3d3983; 
+		width: 300px;
 	}
 
 	@media all and (max-width:1400px) {
