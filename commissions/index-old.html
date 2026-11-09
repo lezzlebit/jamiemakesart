@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="icon" href="assets/favicon.png" />
+	<title>Commissions</title>
+	<link rel="stylesheet" href="../style.css?v=12" />
+	<script src="../script.js?v=5" defer></script>
+</head>
+
+<body style="background-color: #3f52a8;">
+	<div class="boxes">
+		<h2>If you discovered this page by typing in "jamiemakes.art/commissions", or if you discovered it from my github: This page is currently WIP, and I'm not taking public commissions yet!</h2>
+	</div>
+	<div class="boxes">
+		<div class="box" style="max-width: 600px;">
+			<h3 class="center">Commissions Page</h3>
+			<h2>You should read all of this before you commission me. Thanks!</h2>
+			<p>I work most efficiently when I draw something I like to draw. Generally, you should commission me if you like the way I draw something, and you want to see my interpretation of something.</p>
+			<h3>Some clarifying, and extra, details:</h3>
+			<ul class="ulist">
+				<li class="list alt"><b>I do not do commissions for minors</b> (people under 18).<br>I take payment via paypal or ko-fi. I can link these in DMs.</li>
+				<li class="list">I will try my best to draw your character accurately, and I will gladly make small tweaks that don't require re-drawing much (like if you want a character's eyes smaller).<br>However, things will go a LOT slower if you ask me to make changes that require me to redraw huge parts of the drawing (or the entire thing).<br>As an example, please don't ask me to do a completely different camera angle or pose if I've already started drawing.</li>
+				<li class="list alt">I do not think you should commission me to draw something that has to match a pretty specific vision that you have in your head.<br>For this reason, you probably <b>should not commission me to make a refsheet</b>, unless you actually want me to design a character from scratch.</li>
+				<li class="list">I would prefer not to be commissioned to draw something that must be completed by a specific deadline, like a birthday gift (unless you're okay with it being completed late).</li>
+				<li class="list alt">If you want me to draw something specific, having visual direction is always better than written direction.<br>Extremely simple stick figure drawings or draw-overs can communicate a lot of information that I might misinterpret in text.<br>Having <i>only</i> written direction will make the process take much longer. <a href="examples/direction.html">(example)</a></li>
+				<li class="list"><b>Finally, and most importantly:</b><br>I draw best, and fastest, when I draw something that I like to draw. I think it's useful if I just tell you what I like to draw.<br>The featured artworks on this page are good examples of what I like to draw, and linked below is a page with more details. You can also check out my art page.</li>			</ul>
+			<p>
+				<a href="what-i-like-drawing.html" class="link">Details on things I like to draw</a>
+				<a href="../art" class="link" style="background-color: #5b397d;"><img class="icon" src="../icons/art.png">My Art page</a>
+				<a style="background:#3e3f97" class="link" href="../contact"><img class="icon" src="../icons/contact.png">How to contact me</a>
+			</p>
+		</div>
+		<div class="box" style="max-width: 1000px; text-align: center;">
+			<img class="showcase" src="../art/assets/OliveAF.gif">
+			<img class="showcase" src="../art/assets/asparagusAF.gif">
+			<img class="showcase" src="../art/assets/MayaArtfight.gif">
+			<img class="showcase" src="../art/assets/bigfrickinyaki.gif">
+			<img class="showcase" src="../art/assets/sillyfreddotorg.gif">
+			<img class="showcase" src="../art/assets/CharlieAF.gif">
+
+		</div>
+	</div>
+	<hr>
+	<div class="boxes">
+		<div class=box>
+			<p>Here are my commission options:</p>
+		</div>
+	</div>
+	<div class="boxes">
+		<div class="box option">
+			<h3>'Flexible' Drawing</h3>
+			<ul>
+				<li>'Flexible' Full Body character: <b>$60 USD</b></li>
+				<li>'Flexible' Headshot, mostly obstructed, or very simple shaped character: <b>$30 USD</b></li>
+			</ul>
+			<p>For this commission option, I'll expect you to give me some basic direction for what kind of drawing you want, and some kind of reference of your character. (This does NOT have to be a full refsheet! But, the more detailed or specific the reference drawing is, the better I'll be able to draw your character.)</p>
+			<p>After you do this, I'll be somewhat experimental with the drawing. I'll do my best to draw your character in my artstyle in a way that I think looks good, and I'll be willing to tweak some small details on request, but <b>I won't take much written direction.</b></p>
+			<p>It'll be somewhat quicker than the other option!</p>
+		</div>
+		<div class="box option">
+			<h3>'Rigid' Drawing</h3>
+			<ul>
+				<li>'Rigid' Full Body character: <b>$100 USD</b></li>
+				<li>'Rigid' Headshot, mostly obstructed, or very simple shaped character: <b>$50 USD</b></li>
+			</ul>
+			<p>For this commission option, we'll communicate more directly about what you want and you can give me more specific directions on what you'd like to be drawn.</p>
+			<p>It helps a LOT if you have some basic visual examples or direction beyond text!! I don't expect you to be an artist to do this. The most simple, crappy microsoft paint drawing can communicate a lot that I might misinterpret in text.</p>
+			<p>This option is ideal if you want me to make a refsheet for you (and you want it to look a specific way).</p>
+		</div>
+		<div class="box" style="min-height: 500px;">
+			<p>Additional characters, beyond the main one, will cost half the price extra. (Flexible drawing with 2 full-body characters is $60 + 30 (half of 60), so $90).</p>
+			<p>Here's a calculator if I explained that in a confusing way.</p>
+			<p>
+				<input type="radio" class="radio" id="flexible" name="drawingtype" value="flexible" onChange="calculatePrice()" checked>
+				<label for="flexible">Flexible</label><br>
+				<input type="radio" class="radio" id="rigid" name="drawingtype" value="rigid" onChange="calculatePrice()">
+				<label for="rigid">Rigid</label><br>
+			</p>
+
+			<p>
+				<input class="picker" type="number" value="1" id="fullbody" name="quantity" min="0" max="3"  onChange="calculatePrice()"> full-body characters<br>
+				<input class="picker" type="number" value="0" id="headshot" name="quantity" min="0" max="3" onChange="calculatePrice()"> mostly obstructed or simple-shaped characters
+			</p>
+
+			<h3 id="finalresult"></h3>
+			<p id="finaltext"></p>
+			
+			
+		</div>
+	</div>
+</body>
+
+</html>
+
+<script>
+
+	calculatePrice()
+
+	function priceloop(drawingtypeprice, drawingsizecount) {
+		price = 0;
+		for (i = 0; i < drawingsizecount; i++) {
+			price += drawingtypeprice * pricemultiplier;
+			pricemultiplier = 0.5;
+		}
+		return price;
+	}
+
+	function calculatePrice() {
+
+		radiovalue = document.querySelector('input[name="drawingtype"]:checked')
+
+		console.log(radiovalue.value)
+
+		fullbody = document.getElementById("fullbody").value
+		headshot = document.getElementById("headshot").value
+
+
+		drawingtypeprice = 60
+		if (radiovalue.value == "flexible") drawingtypeprice = 60
+		if (radiovalue.value == "rigid") drawingtypeprice = 100
+
+		pricemultiplier = 1;
+		price = priceloop(drawingtypeprice, fullbody);
+		price += priceloop(drawingtypeprice / 2, headshot)
+
+
+		fullbodyprinted = ""
+		if (fullbody == 1) fullbodyprinted = fullbody + " fullbody character"
+		if (fullbody > 1) fullbodyprinted = fullbody + " fullbody characters"
+		if (headshot > 0 && fullbody > 0) fullbodyprinted += " and "
+
+		headshotprinted = ""
+		if (headshot == 1) headshotprinted = headshot + " partial character"
+		if (headshot > 1) headshotprinted = headshot + " partial characters"
+
+		printed = "For a " + titleCase(radiovalue.value) + " drawing with " + fullbodyprinted + headshotprinted
+		priceprinted = "$" + price + " USD"
+		if (headshot == 0 && fullbody == 0) {
+			printed = ""
+			priceprinted = ""
+		}
+
+		document.getElementById("finaltext").innerHTML = printed;
+		document.getElementById("finalresult").innerHTML = priceprinted;
+	}
+
+	// https://stackoverflow.com/questions/32589197/how-can-i-capitalize-the-first-letter-of-each-word-in-a-string-using-javascript
+	function titleCase(str) {
+		var splitStr = str.toLowerCase().split(' ');
+		for (var i = 0; i < splitStr.length; i++) {
+			splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+		}
+		return splitStr.join(' '); 
+	}
+
+</script>
+
+
+<style>
+
+	.picker {
+		color: blue;
+		border: none;
+		outline: none;
+		padding: 5px;
+		margin: 2px;
+	}
+
+	.option {
+		background-color: #3d3983;
+		min-height: 500px;
+	}
+	.showcase {
+		height: 300px;
+		margin: 3px;
+	}
+
+	br {
+		margin-bottom: 8px;
+	}
+
+	.ulist {
+		padding-left: 0px;
+	}
+
+	.list {
+		margin: 5px;
+		padding: 15px;
+		background-color: rgba(12, 0, 68, 0.205)
+	}
+
+	/*.alt {
+		background-color: rgba(12, 0, 68, 0.315)
+	}*/
+
+	.list:hover {
+		background-color: rgba(12, 0, 68, 0.411);
+	}
+
+	@media all and (max-width:800px) {
+		.showcase {
+			width: 40%;
+			height: auto;
+			margin: 3px;
+		}
+	}
+</style>
