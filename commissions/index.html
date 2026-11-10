@@ -43,8 +43,8 @@
 			<div class="box pricing">
 				<h3 class="title">Price Calculator</h3>
 				<p>
-					<input class="picker" type="number" value="1" id="fullbody" name="quantity" min="0" max="3"  onChange="calculatePrice()"> full-body characters<br>
-					<input class="picker" type="number" value="0" id="headshot" name="quantity" min="0" max="3" onChange="calculatePrice()"> non-fullbody/simple-shaped<br>
+					<input class="picker" type="number" value="1" id="fullbody" name="quantity" min="0" max="3"  onChange="calculatePrice(this)"> full-body characters<br>
+					<input class="picker" type="number" value="0" id="headshot" name="quantity" min="0" max="3" onChange="calculatePrice(this)"> non-fullbody/simple-shaped<br>
 					<input type="checkbox" id="colored" name="colored" onChange="calculatePrice()" checked>
 					<label for="colored" checked>Colored drawing</label><br>
 					<input type="checkbox" id="hasme" name="hasme" onChange="calculatePrice()">
@@ -71,19 +71,25 @@
 					I do not do commissions for minors (sorry!)
 				</li>
 				<li class="list">
+					I reserve the right to cancel the commission before I request the payment. (This is unlikely to happen if you read and follow everything here)
+				</li>
+				<li class="list">
 					I like to be a bit experimental when drawing something. You probably shouldn't commission me to draw things requiring lots of accuracy (like a refsheet).
+				</li>
+				<li class="list">
+					I will my best to draw your character accurately, and I'll gladly tweak lines or colors. However, if I've already started, please don't ask me to draw a totally different pose or camera angle, as that is essentially restarting the commission. <br>(If you want this process to go more smoothly, <a href="examples/direction.html">provide visual direction</a>!)
 				</li>
 				<li class="list">
 					I'm a bit of a procrastinator, so you should avoid commissioning me with a deadline in mind (like for a birthday present). I will try my best, though! Feel free to check in with me if I haven't given an update in a few days.
 				</li>
 				<li class="list">
-					I will also try my best to draw your character accurately, and I'll gladly tweak lines or colors. However, if I've already started, please don't ask me to draw a totally different pose or camera angle, as that is essentially restarting the commission. <br>(If you want this process to go more smoothly, <a href="examples/direction.html">provide visual direction</a>!)
-				</li>
-				<li class="list">
-					If everything goes well, I am open to doing repeat commissions!
+					I don't draw complicated 3D backgrounds or scenery for commissions. I'll gladly do simple backgrounds made of abstract shapes or patterns!
 				</li>
 				<li class="list">
 					If you want to commission NSFW art, details can be found on <a href="extra.html">this page</a>.
+				</li>
+				<li class="list">
+					If everything goes well, I am open to doing repeat commissions!
 				</li>
 				<li class="list">
 					<b>Most importantly:</b> I draw best and fastest when I have fun, so listed below are some things I like drawing most:
@@ -92,12 +98,12 @@
 			<h3 class="title">Things I like drawing:</h3>
 			<div class="boxes">
 				<div class="box tight">
-					<p>Snakes and similar creatures!</p>
-					<img class="showcase" src="../art/assets/sayhitofred.png">
-				</div>
-				<div class="box tight">
 					<p>Chubby or soft characters!</p>
 					<img class="showcase" src="../art/assets/bigfrickinyaki.png">
+				</div>
+				<div class="box tight">
+					<p>Snakes and similar creatures!</p>
+					<img class="showcase" src="../art/assets/sayhitofred.png">
 				</div>
 				<div class="box tight">
 					<p>Anything involving my sona!</p>
@@ -170,15 +176,38 @@
 		return price;
 	}
 
-	function calculatePrice() {
+	function calculatePrice(thisObject) {
+
+		max_total = 3
 
 		radiovalue = document.querySelector('input[name="drawingtype"]:checked')
 
 		coloreddrawing = document.getElementById("colored").checked
 		hasme = document.getElementById("hasme").checked
 
+		
 		fullbodyobject = document.getElementById("fullbody")
 		headshotobject = document.getElementById("headshot")
+
+		fullbodyobject.value = Math.max(0, Math.min(fullbodyobject.value, 3))
+		headshotobject.value = Math.max(0, Math.min(headshotobject.value, 3))
+
+
+		if (fullbodyobject == thisObject) {
+			new_value = fullbodyobject.value
+			headshotobject.value = Math.min(headshotobject.value, max_total - fullbodyobject.value)
+		}
+		if (headshotobject == thisObject) {
+			new_value = headshotobject.value
+			fullbodyobject.value = Math.min(fullbodyobject.value, max_total - headshotobject.value)
+		}
+
+
+		added_total = fullbodyobject.value + headshotobject.value
+		if (added_total > 3) {
+			
+		}
+
 		if (fullbodyobject.value > 3) fullbodyobject.value = 3
 		if (headshotobject.value > 3) headshotobject.value = 3
 		fullbody = fullbodyobject.value
@@ -327,7 +356,7 @@
 
 	.list {
 		margin: 0px;
-		padding: 12px;
+		padding: 7px;
 	}
 
 	/*.alt {
