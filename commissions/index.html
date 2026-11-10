@@ -21,41 +21,51 @@
 	<div class="boxes" id="box_slots">
 	</div>
 
-	<div class="boxes" style="align-items: baseline; flex-direction: row-reverse;">
+	<div class="boxes" style="align-items: baseline; flex-direction: row-reverse; margin-top: 1em;">
 		<div class="boxes price">
 			<div class="box pricing">
-				<h2 style="margin-bottom:0px;">Pricing:</h2>
+				<h3 class="title" style="margin-bottom:0px;">Pricing</h3>
+				<div class="price-listing">
+					<p class="price-description">Fullbody character:</p>
+					<p class="price-value">$70 USD</p>
+				</div>
+				<div class="price-listing">
+					<p class="price-description">Halfbody/bust/simple:</p>
+					<p class="price-value">$50 USD</p>
+				</div>
 				<p>
-					Fullbody character: <b>$60 USD</b><br>
-					Halfbody, PFP, or very simple-shaped character: <b>$40 USD</b><br><br>
 					Additional characters are half the price they would be by themselves<br>
 					25% off for an uncolored drawing<br>
-					25% off if it has my sona<br><br>
+					25% off if it has my sona<br>
 					I take payment via PayPal or Ko-fi (I will provide a link in DMs once I request a payment)
 				</p>
 			</div>
 			<div class="box pricing">
-				<h2>Price Calculator</h2>
+				<h3 class="title">Price Calculator</h3>
 				<p>
 					<input class="picker" type="number" value="1" id="fullbody" name="quantity" min="0" max="3"  onChange="calculatePrice()"> full-body characters<br>
 					<input class="picker" type="number" value="0" id="headshot" name="quantity" min="0" max="3" onChange="calculatePrice()"> non-fullbody/simple-shaped<br>
 					<input type="checkbox" id="colored" name="colored" onChange="calculatePrice()" checked>
 					<label for="colored" checked>Colored drawing</label><br>
 					<input type="checkbox" id="hasme" name="hasme" onChange="calculatePrice()">
-					<label for="hasme" checked>Includes my sona</label><br>
+					<label for="hasme" checked>Includes my sona</label>
 				</p>
 
-				<h3 id="finalresult"></h3>
-				<p id="finaltext"></p>
+				<div class="price-listing">
+					<p class="price-value" id="finalresult"></p>
+					<p class="price-description" id="finaltext"></p>
+				</div>
+
+
 			</div>
 		</div>
 		<div class="box" style="max-width: 600px;">
 
-			<a style="background:#422e8b" class="link" href="../contact"><img class="icon" src="../icons/contact.png">Contact Page</a>
-			<h3>
+			<p><a style="background:#422e8b; margin-right: 1em;" class="link" href="../contact"><img class="icon" src="../icons/contact.png">Contact Page</a>(DM me somewhere and I'll add you on Discord)</p>
+			<h3 class="title">
 				Hi! You can commission me to draw furries and other creatures.<br>
-				Here are some important details, please read them:
-			</h3>
+				Please read these details below before commissioning me:
+			</h3 class="title">
 			<ul>
 				<li class="list">
 					I do not do commissions for minors (sorry!)
@@ -67,7 +77,10 @@
 					I'm a bit of a procrastinator, so you should avoid commissioning me with a deadline in mind (like for a birthday present). I will try my best, though! Feel free to check in with me if I haven't given an update in a few days.
 				</li>
 				<li class="list">
-					I will also try my best to draw your character accurately, and I'll gladly tweak lines or colors. However, please don't ask me to draw a different pose or camera angle halfway through the process, as that is essentially restarting the commission. <br>(If you want this process to go more smoothly, <a href="examples/direction.html">providing visual direction</a> at the start is very helpful)
+					I will also try my best to draw your character accurately, and I'll gladly tweak lines or colors. However, if I've already started, please don't ask me to draw a totally different pose or camera angle, as that is essentially restarting the commission. <br>(If you want this process to go more smoothly, <a href="examples/direction.html">provide visual direction</a>!)
+				</li>
+				<li class="list">
+					If everything goes well, I am open to doing repeat commissions!
 				</li>
 				<li class="list">
 					If you want to commission NSFW art, details can be found on <a href="extra.html">this page</a>.
@@ -76,7 +89,7 @@
 					<b>Most importantly:</b> I draw best and fastest when I have fun, so listed below are some things I like drawing most:
 				</li>
 			</ul>
-			<h3>Things I like drawing:</h3>
+			<h3 class="title">Things I like drawing:</h3>
 			<div class="boxes">
 				<div class="box tight">
 					<p>Snakes and similar creatures!</p>
@@ -202,8 +215,8 @@
 		// }
 
 		pricemultiplier = 1;
-		price = priceloop(60, fullbody);
-		price += priceloop(40, headshot)
+		price = priceloop(70, fullbody);
+		price += priceloop(50, headshot)
 
 		if (!coloreddrawing) price *= (0.75)
 		if (hasme) price *= (0.75)
@@ -252,6 +265,13 @@
 
 <style>
 
+
+	.title {
+		margin: 5px;
+		padding: 5px;
+		display: block;
+		font-style: italic;
+	}
 
 	.slot {
 		width: 50px;
@@ -320,7 +340,25 @@
 
 	.price {
 		align-items: baseline;
-		max-width: 300px;
+		max-width: 400px;
+	}
+
+	.price-listing {
+		background-color: #3f52a8;
+		text-align: left;
+		display: block;
+		margin: 4px;
+		padding: 12px;
+	}
+
+	.price-description {
+		display: inline;
+		font-style: italic;
+	}
+
+	.price-value {
+		font-weight: bold;
+		display: inline;
 	}
 
 	.pricing {
