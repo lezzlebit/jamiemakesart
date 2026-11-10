@@ -164,8 +164,14 @@
 		coloreddrawing = document.getElementById("colored").checked
 		hasme = document.getElementById("hasme").checked
 
-		fullbody = document.getElementById("fullbody").value
-		headshot = document.getElementById("headshot").value
+		fullbodyobject = document.getElementById("fullbody")
+		headshotobject = document.getElementById("headshot")
+		if (fullbodyobject.value > 3) fullbodyobject.value = 3
+		if (headshotobject.value > 3) headshotobject.value = 3
+		fullbody = fullbodyobject.value
+		headshot = headshotobject.value
+
+
 
 
 
