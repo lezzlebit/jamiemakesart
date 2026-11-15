@@ -130,7 +130,7 @@
 		if (i < current_day) {
 			days_container.innerHTML += '<a id="' + i + '" class="page-button" onclick="load_day(' + i + ')">' + formatter.format(new_day) + '</a>'
 		} else {
-			if (i - current_day < 10) {
+			if (i - current_day < 3) {
 				days_container.innerHTML += '<a id="' + i + '" class="future-page-button">' + formatter.format(new_day) + '</a>'
 			}
 			
