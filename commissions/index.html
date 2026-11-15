@@ -11,7 +11,7 @@
 	<script src="https://pastebin.com/embed_js/s1fwsGR5?theme=dark"></script>
 </head>
 
-<body style="background-color: #3f52a8;">
+<body style="">
 	
 	
 
@@ -61,7 +61,7 @@
 		</div>
 		<div class="box" style="max-width: 600px;">
 
-			<p><a style="background:#422e8b; margin-right: 1em;" class="link" href="../contact"><img class="icon" src="../icons/contact.png">Contact Page</a>(DM me somewhere and I'll add you on Discord)</p>
+			<p><a style="background:#422e8b; margin-right: 1em;" class="link" href="../contact"><img class="icon" src="../icons/contact.png">Contact Page</a><b>(DM me somewhere and I'll add you on Discord)</b></p>
 			<h3 class="title">
 				Hi! You can commission me to draw furries and other creatures.<br>
 				Please read these details below before commissioning me:
@@ -71,7 +71,7 @@
 					I do not do commissions for minors (sorry!)
 				</li>
 				<li class="list">
-					I don't do commissions for commercial use, only personal. I also prefer not to do commissions for projects like games or books even if they're non-commercial.
+					I only do commissions for personal usage, no commercial projects. I also prefer not to do commissions for projects even if they're non-commercial.
 				</li>
 				<li class="list">
 					I reserve the right to cancel the commission before I request the payment. (This is unlikely to happen if you read and follow everything here)
@@ -80,19 +80,16 @@
 					I like to be a bit experimental when drawing something. You probably shouldn't commission me to draw things requiring lots of accuracy (like a refsheet).
 				</li>
 				<li class="list">
-					I will of course try my best to draw your character accurately, and I'll gladly tweak lines or colors. However, if I've already started, please don't ask me to draw a totally different pose or camera angle, as that is essentially restarting the commission. <br>(If you want this process to go more smoothly, <a href="examples/direction.html">provide visual direction</a>!)
+					I will of course try my best to draw your character accurately, and I'll gladly tweak lines or colors. However, if I've already started, please don't ask me to draw a totally different pose or camera angle, as that is essentially restarting the commission.
 				</li>
 				<li class="list">
-					I'm a bit of a procrastinator, so you should avoid commissioning me with a deadline in mind (like for a birthday present). I will try my best, though! Feel free to check in with me if I haven't given an update in a few days.
+					You should avoid commissioning me with a deadline in mind (like for a birthday present). I will try my best not to procrastinate, but feel free to check in with me if I haven't given an update in a few days.
 				</li>
 				<li class="list">
-					I don't draw complicated 3D backgrounds or scenery for commissions. I'll gladly do simple backgrounds made of abstract shapes or patterns!
+					I don't draw complicated 3D backgrounds or scenery for commissions. I'll gladly do simple backgrounds made of abstract shapes or patterns for no extra price.
 				</li>
 				<li class="list">
 					If you want to commission NSFW art, details can be found on <a href="extra.html">this page</a>.
-				</li>
-				<li class="list">
-					If everything goes well, I am open to doing repeat commissions!
 				</li>
 				<li class="list">
 					<b>Most importantly:</b> I draw best and fastest when I have fun, so listed below are some things I like drawing most:
@@ -206,10 +203,7 @@
 		}
 
 
-		added_total = fullbodyobject.value + headshotobject.value
-		if (added_total > 3) {
-			
-		}
+		
 
 		if (fullbodyobject.value > 3) fullbodyobject.value = 3
 		if (headshotobject.value > 3) headshotobject.value = 3
@@ -220,11 +214,15 @@
 
 
 
-
+		added_total = parseInt(fullbody) + parseInt(headshot)
+		console.log(added_total)
 
 		sonatitle = ""
 		if (hasme) {
 			sonatitle = " (including my sona)"
+			if (added_total == 1) {
+				sonatitle = " (which is my sona)"
+			}
 		}
 
 		// if (hasme) {
@@ -376,7 +374,7 @@
 	}
 
 	.price-listing {
-		background-color: #3f52a8;
+		background-color: #1c1959;
 		text-align: left;
 		display: block;
 		margin: 4px;
