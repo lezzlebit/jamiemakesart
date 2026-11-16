@@ -125,13 +125,15 @@
 		new_day = new Date()
 		new_day.setDate(date.getDate() + i)
 
-
+		suffix = ""
 
 		if (i < current_day) {
 			days_container.innerHTML += '<a id="' + i + '" class="page-button" onclick="load_day(' + i + ')">' + formatter.format(new_day) + '</a>'
 		} else {
-			if (i - current_day < 3) {
-				days_container.innerHTML += '<a id="' + i + '" class="future-page-button">' + formatter.format(new_day) + '</a>'
+			max_forward_date = 3
+			if (i - current_day < max_forward_date) {
+				if (i - current_day == max_forward_date - 1) suffix = " ..."
+				days_container.innerHTML += '<a id="' + i + '" class="future-page-button">' + formatter.format(new_day) + suffix + '</a>'
 			}
 			
 		}
