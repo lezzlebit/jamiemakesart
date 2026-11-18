@@ -23,7 +23,7 @@ class artwork:
 
 class group:
 	name = ""
-	lastdateadded = ""
+	lastmentionedindex = 0
 
 artworks = []
 groups = []
@@ -57,14 +57,14 @@ for i in allworks:
 			for g in groups:
 				if g.name == groupname:
 					addedgroup = True
-					if (timeInt(worktags[3]) > timeInt(g.lastdateadded)):
-						g.lastdateadded = worktags[3]
+					if (artIndex > g.lastmentionedindex):
+						g.lastmentionedindex = artIndex
 
 					
 			if not addedgroup:
 				newGroup = group()
 				newGroup.name = groupname
-				newGroup.lastdateadded = worktags[3]
+				newGroup.lastmentionedindex = artIndex
 				groups.append(newGroup)
 
 			newArtwork.index = artIndex
@@ -83,7 +83,7 @@ for i in allworks:
 
 for i in groups:
 	print(i.name)
-	print(i.lastdateadded)
+	print(i.lastmentionedindex)
 
 def getGroup(a):
 	selectedgroup = None
@@ -93,7 +93,7 @@ def getGroup(a):
 	return selectedgroup
 
 def sortByGroup(e):
-  return -timeInt(getGroup(e).lastdateadded)
+  return -getGroup(e).lastmentionedindex
 
 def sortByTime(e):
   return -timeInt(e.date) + -e.index
