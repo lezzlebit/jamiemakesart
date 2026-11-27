@@ -41,7 +41,13 @@ for (a = 0; a < stars.length; a++) {
 	ctx.fillStyle = "white";
 
 	scrollY = (window.pageYOffset / -5000) * distance;
-	ctx.fillRect(stars[a].x * canvas.width, (stars[a].y + scrollY) * canvas.height , distance, distance);
+
+	posY = (stars[a].y + scrollY) * canvas.height
+	posX = stars[a].x * canvas.width
+	posY = Math.round(posY)
+	posX = Math.round(posX)
+	distance = Math.round(distance)
+	ctx.fillRect(posX, posY, distance, distance);
 	// if (stars[a].y > 1) stars[a].y = 0;
 }
 
